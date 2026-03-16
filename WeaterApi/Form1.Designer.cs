@@ -35,7 +35,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(76, 309);
+            this.button1.Location = new System.Drawing.Point(153, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 68);
             this.button1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(290, 309);
+            this.button2.Location = new System.Drawing.Point(388, 455);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 68);
             this.button2.TabIndex = 1;
@@ -53,7 +53,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(498, 309);
+            this.button3.Location = new System.Drawing.Point(612, 455);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 68);
             this.button3.TabIndex = 2;
@@ -64,11 +64,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(961, 603);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
 
