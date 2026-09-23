@@ -28,31 +28,43 @@ namespace WeaterApi
         }
         void getweather()
         {
-            using (WebClient web = new WebClient())
-            {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units=metric", tbCity.Text, APIKey);
-                var json = web.DownloadString(url);
-                WeatherInfo.root info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
+            try {
+                using (WebClient web = new WebClient())
+                {
+                    string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}&units=metric", tbCity.Text, APIKey);
+                    var json = web.DownloadString(url);
+                    WeatherInfo.root info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
-                picIcon.ImageLocation = "https://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
-                lblCondition.Text = info.weather[0].main;
-                lblDetails.Text = info.weather[0].description;
-                lblSunset.Text = convertDateTime(info.sys.sunset).ToShortTimeString();
-                lblSunrise.Text = convertDateTime(info.sys.sunrise).ToShortTimeString();
+                    picIcon.ImageLocation = "https://openweathermap.org/img/w/" + info.weather[0].icon + ".png";
+                    lblCondition.Text = info.weather[0].main;
+                    lblDetails.Text = info.weather[0].description;
+                    lblSunset.Text = convertDateTime(info.sys.sunset).ToShortTimeString();
+                    lblSunrise.Text = convertDateTime(info.sys.sunrise).ToShortTimeString();
 
-                lblWindSpeed.Text = (info.wind.speed*3.6).ToString() + " Km/h";
-                lblPressure.Text = info.main.pressure.ToString() + " hPa";
-
-
-
+                    lblWindSpeed.Text = (info.wind.speed * 3.6).ToString() + " Km/h";
+                    lblPressure.Text = info.main.pressure.ToString() + " hPa";
 
 
-                /*lblTemp.Text = info.main.temp.ToString() + " °C";
-                lblHumidity.Text = info.main.humidity.ToString() + " %";
-                lblWind.Text = info.wind.speed.ToString() + " m/s";
-                lblDescription.Text = info.weather[0].description;*/
 
+
+
+                    /*lblTemp.Text = info.main.temp.ToString() + " °C";
+                    lblHumidity.Text = info.main.humidity.ToString() + " %";
+                    lblWind.Text = info.wind.speed.ToString() + " m/s";
+                    lblDescription.Text = info.weather[0].description;*/
+
+                }
             }
+            catch (WebException)
+            {
+                MessageBox.Show(
+                "Please enter a valid city name.",
+                   "City Not Found",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+                );
+            }
+            
         }
 
         DateTime convertDateTime(long sec)
