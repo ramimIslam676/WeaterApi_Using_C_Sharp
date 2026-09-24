@@ -19,7 +19,7 @@ namespace WeaterApi
             InitializeComponent();
         }
 
-        string APIKey = "63d395642a0dc28464452ad6a80d784c";
+        string APIKey = "Your_API_KEY";
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
